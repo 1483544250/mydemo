@@ -36,6 +36,15 @@ export default {
       if (this.text) {
         this.$bus.submitText({
           text: this.text,
+        }).then((res) => {
+          if (res.code === 0) {
+            this.$message({
+              message: '成功',
+              type: 'success',
+            });
+            this.text = '';
+            this.getData();
+          }
         });
       }
     },
