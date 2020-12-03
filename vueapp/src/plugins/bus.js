@@ -8,13 +8,14 @@ export default {
       data() {
         return {
           host,
+          id: null,
         };
       },
       methods: {
         // 接口部分
         submitText(data) {
           return axios({
-            url: `${host}/submitText`,
+            url: `${host}/text`,
             method: 'post',
             data,
           }).then((response) => {
@@ -22,9 +23,11 @@ export default {
             return result;
           });
         },
-        getList() {
+        getList(data) {
           return axios({
-            url: `${host}/text`,
+            url: `${host}/getList`,
+            method: 'post',
+            data,
           }).then((response) => {
             const result = response.data;
             return result;
@@ -43,6 +46,26 @@ export default {
         remove(data) {
           return axios({
             url: `${host}/remove`,
+            method: 'post',
+            data,
+          }).then((response) => {
+            const result = response.data;
+            return result;
+          });
+        },
+        register(data) {
+          return axios({
+            url: `${host}/register`,
+            method: 'post',
+            data,
+          }).then((response) => {
+            const result = response.data;
+            return result;
+          });
+        },
+        login(data) {
+          return axios({
+            url: `${host}/login`,
             method: 'post',
             data,
           }).then((response) => {
