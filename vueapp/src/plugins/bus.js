@@ -15,7 +15,7 @@ export default {
         // 接口部分
         submitText(data) {
           return axios({
-            url: `${host}/text`,
+            url: `${host}/books`,
             method: 'post',
             data,
           }).then((response) => {
@@ -23,11 +23,11 @@ export default {
             return result;
           });
         },
-        getList(data) {
+        getList(params) {
           return axios({
-            url: `${host}/getList`,
-            method: 'post',
-            data,
+            url: `${host}/books`,
+            method: 'get',
+            params,
           }).then((response) => {
             const result = response.data;
             return result;
@@ -35,8 +35,8 @@ export default {
         },
         updata(data) {
           return axios({
-            url: `${host}/updata`,
-            method: 'post',
+            url: `${host}/books`,
+            method: 'PATCH',
             data,
           }).then((response) => {
             const result = response.data;
@@ -45,8 +45,8 @@ export default {
         },
         remove(data) {
           return axios({
-            url: `${host}/remove`,
-            method: 'post',
+            url: `${host}/books`,
+            method: 'DELETE',
             data,
           }).then((response) => {
             const result = response.data;
